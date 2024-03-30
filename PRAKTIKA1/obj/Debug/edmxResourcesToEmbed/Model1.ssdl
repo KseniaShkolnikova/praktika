@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище PRAKT2Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="INGREDIENTS">
+    <Key>
+      <PropertyRef Name="ID_INGREDIENT" />
+    </Key>
+    <Property Name="ID_INGREDIENT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME_INGREDIENT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GRAMMOVKA" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="DESCRIPTION_INGREDIENT" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="SUSHI">
+    <Key>
+      <PropertyRef Name="ID_SUSHI" />
+    </Key>
+    <Property Name="ID_SUSHI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NANE_SUSHI" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PRICE_SUSHI" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="DESCRIPTION_SUSHI" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="SUSHI_STORE">
+    <Key>
+      <PropertyRef Name="ID_SUSHI_STORE" />
+    </Key>
+    <Property Name="ID_SUSHI_STORE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME_POVARA" Type="varchar" MaxLength="100" />
+    <Property Name="COLVO_SUSHI" Type="int" Nullable="false" />
+    <Property Name="SUSHI_ID" Type="int" Nullable="false" />
+    <Property Name="INGREDIENT_ID" Type="int" Nullable="false" />
+    <Property Name="GRADE_SUSHI" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__SUSHI_STO__INGRE__3C69FB99">
+    <End Role="INGREDIENTS" Type="Self.INGREDIENTS" Multiplicity="1" />
+    <End Role="SUSHI_STORE" Type="Self.SUSHI_STORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INGREDIENTS">
+        <PropertyRef Name="ID_INGREDIENT" />
+      </Principal>
+      <Dependent Role="SUSHI_STORE">
+        <PropertyRef Name="INGREDIENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SUSHI_STO__SUSHI__3B75D760">
+    <End Role="SUSHI" Type="Self.SUSHI" Multiplicity="1" />
+    <End Role="SUSHI_STORE" Type="Self.SUSHI_STORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUSHI">
+        <PropertyRef Name="ID_SUSHI" />
+      </Principal>
+      <Dependent Role="SUSHI_STORE">
+        <PropertyRef Name="SUSHI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище PRAKT2ModelContainer">
+    <EntitySet Name="INGREDIENTS" EntityType="Self.INGREDIENTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUSHI" EntityType="Self.SUSHI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUSHI_STORE" EntityType="Self.SUSHI_STORE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__SUSHI_STO__INGRE__3C69FB99" Association="Self.FK__SUSHI_STO__INGRE__3C69FB99">
+      <End Role="INGREDIENTS" EntitySet="INGREDIENTS" />
+      <End Role="SUSHI_STORE" EntitySet="SUSHI_STORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SUSHI_STO__SUSHI__3B75D760" Association="Self.FK__SUSHI_STO__SUSHI__3B75D760">
+      <End Role="SUSHI" EntitySet="SUSHI" />
+      <End Role="SUSHI_STORE" EntitySet="SUSHI_STORE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

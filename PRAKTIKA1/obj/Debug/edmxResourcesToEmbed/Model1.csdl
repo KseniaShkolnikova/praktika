@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PRAKT2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="INGREDIENTS">
+    <Key>
+      <PropertyRef Name="ID_INGREDIENT" />
+    </Key>
+    <Property Name="ID_INGREDIENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME_INGREDIENT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GRAMMOVKA" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="DESCRIPTION_INGREDIENT" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SUSHI_STORE" Relationship="Self.FK__SUSHI_STO__INGRE__3C69FB99" FromRole="INGREDIENTS" ToRole="SUSHI_STORE" />
+  </EntityType>
+  <EntityType Name="SUSHI">
+    <Key>
+      <PropertyRef Name="ID_SUSHI" />
+    </Key>
+    <Property Name="ID_SUSHI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NANE_SUSHI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRICE_SUSHI" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="DESCRIPTION_SUSHI" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SUSHI_STORE" Relationship="Self.FK__SUSHI_STO__SUSHI__3B75D760" FromRole="SUSHI" ToRole="SUSHI_STORE" />
+  </EntityType>
+  <EntityType Name="SUSHI_STORE">
+    <Key>
+      <PropertyRef Name="ID_SUSHI_STORE" />
+    </Key>
+    <Property Name="ID_SUSHI_STORE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME_POVARA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COLVO_SUSHI" Type="Int32" Nullable="false" />
+    <Property Name="SUSHI_ID" Type="Int32" Nullable="false" />
+    <Property Name="INGREDIENT_ID" Type="Int32" Nullable="false" />
+    <Property Name="GRADE_SUSHI" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="INGREDIENTS" Relationship="Self.FK__SUSHI_STO__INGRE__3C69FB99" FromRole="SUSHI_STORE" ToRole="INGREDIENTS" />
+    <NavigationProperty Name="SUSHI" Relationship="Self.FK__SUSHI_STO__SUSHI__3B75D760" FromRole="SUSHI_STORE" ToRole="SUSHI" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__SUSHI_STO__INGRE__3C69FB99">
+    <End Role="INGREDIENTS" Type="Self.INGREDIENTS" Multiplicity="1" />
+    <End Role="SUSHI_STORE" Type="Self.SUSHI_STORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INGREDIENTS">
+        <PropertyRef Name="ID_INGREDIENT" />
+      </Principal>
+      <Dependent Role="SUSHI_STORE">
+        <PropertyRef Name="INGREDIENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SUSHI_STO__SUSHI__3B75D760">
+    <End Role="SUSHI" Type="Self.SUSHI" Multiplicity="1" />
+    <End Role="SUSHI_STORE" Type="Self.SUSHI_STORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUSHI">
+        <PropertyRef Name="ID_SUSHI" />
+      </Principal>
+      <Dependent Role="SUSHI_STORE">
+        <PropertyRef Name="SUSHI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PRAKT2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="INGREDIENTS" EntityType="Self.INGREDIENTS" />
+    <EntitySet Name="SUSHI" EntityType="Self.SUSHI" />
+    <EntitySet Name="SUSHI_STORE" EntityType="Self.SUSHI_STORE" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK__SUSHI_STO__INGRE__3C69FB99" Association="Self.FK__SUSHI_STO__INGRE__3C69FB99">
+      <End Role="INGREDIENTS" EntitySet="INGREDIENTS" />
+      <End Role="SUSHI_STORE" EntitySet="SUSHI_STORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SUSHI_STO__SUSHI__3B75D760" Association="Self.FK__SUSHI_STO__SUSHI__3B75D760">
+      <End Role="SUSHI" EntitySet="SUSHI" />
+      <End Role="SUSHI_STORE" EntitySet="SUSHI_STORE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
