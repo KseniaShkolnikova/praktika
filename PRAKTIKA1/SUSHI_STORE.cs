@@ -21,7 +21,7 @@ namespace PRAKTIKA1
         public int INGREDIENT_ID { get; set; }
         public string GRADE_SUSHI { get; set; }
     
-        public virtual INGREDIENTS INGREDIENTS { get; set; }
+        public virtual INGREDIENTS INGREDIENTS {private get; set; }
         public virtual SUSHI SUSHI {private get; set; }
     }
 }

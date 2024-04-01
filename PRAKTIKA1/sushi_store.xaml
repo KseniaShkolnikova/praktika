@@ -9,6 +9,40 @@
       Title="sushi_store">
 
     <Grid>
-        <DataGrid x:Name="sushik_stor" Background="#FFDEFAFF"  BorderBrush="#FFDEFAFF"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="143*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="32*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" x:Name="sushik_store" Background="#FFDEFAFF"  BorderBrush="#FFDEFAFF" SelectionChanged="sushik_store_SelectionChanged"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Удалить"  Grid.Column="0" Margin="10" FontSize="25px"  Background="#FFBFFBFD" Click="Button_Click_1"/>
+            <Button Content="Добавить" Grid.Column="1" Margin="10" FontSize="30px" Background="#FFBFFBFD"  Click="Button_Click_3"  />
+            <Button Content="Изменить" Grid.Column="2" FontSize="25px" Margin="10"  Background="#FFBFFBFD" Click="Button_Click_2" />
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="text1" Grid.Column="0" Margin="5"/>
+            <TextBox x:Name="text2" Grid.Column="1" Margin="5"/>
+            <TextBox x:Name="text3" Grid.Column="2" Margin="5"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="text4" Grid.Column="0" Margin="5"/>
+            <TextBox x:Name="text5" Grid.Column="1" Margin="5"/>
+        </Grid>
     </Grid>
 </Page>

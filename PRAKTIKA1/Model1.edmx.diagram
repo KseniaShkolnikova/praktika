@@ -4,13 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9ab2b9815a9945e7bf0cb6f8c5f4a986" Name="Diagram1">
-        <EntityTypeShape EntityType="PRAKT2Model.INGREDIENTS" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PRAKT2Model.SUSHI" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PRAKT2Model.SUSHI_STORE" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="PRAKT2Model.sysdiagrams" Width="1.5" PointX="6.375" PointY="7.5" IsExpanded="true" />
-        <AssociationConnector Association="PRAKT2Model.FK__SUSHI_STO__INGRE__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="PRAKT2Model.FK__SUSHI_STO__SUSHI__3B75D760" ManuallyRouted="false" />
+      <Diagram DiagramId="1d5c081853154f97903ddfa2945bc3df" Name="Diagram1">
+        <EntityTypeShape EntityType="PRAKT3Model.INGREDIENTS" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRAKT3Model.SUSHI" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRAKT3Model.SUSHI_STORE" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="PRAKT3Model.FK__SUSHI_STO__INGRE__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="PRAKT3Model.FK__SUSHI_STO__SUSHI__3D5E1FD2" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

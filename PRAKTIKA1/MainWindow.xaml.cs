@@ -21,8 +21,6 @@ namespace PRAKTIKA1
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        
         public MainWindow()
         {
             InitializeComponent();
@@ -43,6 +41,9 @@ namespace PRAKTIKA1
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             datagrids.Content = new ihgrid();
+
         }
+
+
     }
 }

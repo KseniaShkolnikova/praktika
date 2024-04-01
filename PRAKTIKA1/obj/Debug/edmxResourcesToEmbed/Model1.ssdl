@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Хранилище PRAKT2Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Хранилище PRAKT3Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="INGREDIENTS">
     <Key>
       <PropertyRef Name="ID_INGREDIENT" />
@@ -29,17 +29,7 @@
     <Property Name="INGREDIENT_ID" Type="int" Nullable="false" />
     <Property Name="GRADE_SUSHI" Type="varchar" MaxLength="5" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
-  <Association Name="FK__SUSHI_STO__INGRE__3C69FB99">
+  <Association Name="FK__SUSHI_STO__INGRE__3E52440B">
     <End Role="INGREDIENTS" Type="Self.INGREDIENTS" Multiplicity="1" />
     <End Role="SUSHI_STORE" Type="Self.SUSHI_STORE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -51,7 +41,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SUSHI_STO__SUSHI__3B75D760">
+  <Association Name="FK__SUSHI_STO__SUSHI__3D5E1FD2">
     <End Role="SUSHI" Type="Self.SUSHI" Multiplicity="1" />
     <End Role="SUSHI_STORE" Type="Self.SUSHI_STORE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -63,16 +53,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Хранилище PRAKT2ModelContainer">
+  <EntityContainer Name="Хранилище PRAKT3ModelContainer">
     <EntitySet Name="INGREDIENTS" EntityType="Self.INGREDIENTS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SUSHI" EntityType="Self.SUSHI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SUSHI_STORE" EntityType="Self.SUSHI_STORE" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__SUSHI_STO__INGRE__3C69FB99" Association="Self.FK__SUSHI_STO__INGRE__3C69FB99">
+    <AssociationSet Name="FK__SUSHI_STO__INGRE__3E52440B" Association="Self.FK__SUSHI_STO__INGRE__3E52440B">
       <End Role="INGREDIENTS" EntitySet="INGREDIENTS" />
       <End Role="SUSHI_STORE" EntitySet="SUSHI_STORE" />
     </AssociationSet>
-    <AssociationSet Name="FK__SUSHI_STO__SUSHI__3B75D760" Association="Self.FK__SUSHI_STO__SUSHI__3B75D760">
+    <AssociationSet Name="FK__SUSHI_STO__SUSHI__3D5E1FD2" Association="Self.FK__SUSHI_STO__SUSHI__3D5E1FD2">
       <End Role="SUSHI" EntitySet="SUSHI" />
       <End Role="SUSHI_STORE" EntitySet="SUSHI_STORE" />
     </AssociationSet>

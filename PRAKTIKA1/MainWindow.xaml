@@ -8,10 +8,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid RenderTransformOrigin="0.493,0.498" Background="#FFDEFAFF">
         <Grid.RowDefinitions>
-            <RowDefinition Height="8*"/>
-            <RowDefinition Height="23*"/>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="275*"/>
         </Grid.RowDefinitions>
-        <Frame x:Name="datagrids" Margin="5" Grid.Row="1"/>
+        <Frame x:Name="datagrids" Margin="5,5,5,5" Grid.Row="1"/>
         <Grid Grid.Row="0" Background="#FFDEFAFF">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

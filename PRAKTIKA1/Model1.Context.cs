@@ -13,10 +13,10 @@ namespace PRAKTIKA1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PRAKT2Entities : DbContext
+    public partial class PRAKT3Entities : DbContext
     {
-        public PRAKT2Entities()
-            : base("name=PRAKT2Entities")
+        public PRAKT3Entities()
+            : base("name=PRAKT3Entities")
         {
         }
     
@@ -28,6 +28,5 @@ namespace PRAKTIKA1
         public virtual DbSet<INGREDIENTS> INGREDIENTS { get; set; }
         public virtual DbSet<SUSHI> SUSHI { get; set; }
         public virtual DbSet<SUSHI_STORE> SUSHI_STORE { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

@@ -97,9 +97,6 @@
     <Compile Include="sushi_store.xaml.cs">
       <DependentUpon>sushi_store.xaml</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Page Include="ihgrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

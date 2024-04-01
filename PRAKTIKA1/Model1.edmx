@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище PRAKT2Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище PRAKT3Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="INGREDIENTS">
           <Key>
             <PropertyRef Name="ID_INGREDIENT" />
@@ -34,17 +34,7 @@
           <Property Name="INGREDIENT_ID" Type="int" Nullable="false" />
           <Property Name="GRADE_SUSHI" Type="varchar" MaxLength="5" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <Association Name="FK__SUSHI_STO__INGRE__3C69FB99">
+        <Association Name="FK__SUSHI_STO__INGRE__3E52440B">
           <End Role="INGREDIENTS" Type="Self.INGREDIENTS" Multiplicity="1" />
           <End Role="SUSHI_STORE" Type="Self.SUSHI_STORE" Multiplicity="*" />
           <ReferentialConstraint>
@@ -56,7 +46,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SUSHI_STO__SUSHI__3B75D760">
+        <Association Name="FK__SUSHI_STO__SUSHI__3D5E1FD2">
           <End Role="SUSHI" Type="Self.SUSHI" Multiplicity="1" />
           <End Role="SUSHI_STORE" Type="Self.SUSHI_STORE" Multiplicity="*" />
           <ReferentialConstraint>
@@ -68,16 +58,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище PRAKT2ModelContainer">
+        <EntityContainer Name="Хранилище PRAKT3ModelContainer">
           <EntitySet Name="INGREDIENTS" EntityType="Self.INGREDIENTS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SUSHI" EntityType="Self.SUSHI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SUSHI_STORE" EntityType="Self.SUSHI_STORE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__SUSHI_STO__INGRE__3C69FB99" Association="Self.FK__SUSHI_STO__INGRE__3C69FB99">
+          <AssociationSet Name="FK__SUSHI_STO__INGRE__3E52440B" Association="Self.FK__SUSHI_STO__INGRE__3E52440B">
             <End Role="INGREDIENTS" EntitySet="INGREDIENTS" />
             <End Role="SUSHI_STORE" EntitySet="SUSHI_STORE" />
           </AssociationSet>
-          <AssociationSet Name="FK__SUSHI_STO__SUSHI__3B75D760" Association="Self.FK__SUSHI_STO__SUSHI__3B75D760">
+          <AssociationSet Name="FK__SUSHI_STO__SUSHI__3D5E1FD2" Association="Self.FK__SUSHI_STO__SUSHI__3D5E1FD2">
             <End Role="SUSHI" EntitySet="SUSHI" />
             <End Role="SUSHI_STORE" EntitySet="SUSHI_STORE" />
           </AssociationSet>
@@ -86,7 +75,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PRAKT2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="PRAKT3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="INGREDIENTS">
           <Key>
             <PropertyRef Name="ID_INGREDIENT" />
@@ -95,7 +84,7 @@
           <Property Name="NAME_INGREDIENT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="GRAMMOVKA" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="DESCRIPTION_INGREDIENT" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="SUSHI_STORE" Relationship="Self.FK__SUSHI_STO__INGRE__3C69FB99" FromRole="INGREDIENTS" ToRole="SUSHI_STORE" />
+          <NavigationProperty Name="SUSHI_STORE" Relationship="Self.FK__SUSHI_STO__INGRE__3E52440B" FromRole="INGREDIENTS" ToRole="SUSHI_STORE" />
         </EntityType>
         <EntityType Name="SUSHI">
           <Key>
@@ -105,7 +94,7 @@
           <Property Name="NANE_SUSHI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRICE_SUSHI" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="DESCRIPTION_SUSHI" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="SUSHI_STORE" Relationship="Self.FK__SUSHI_STO__SUSHI__3B75D760" FromRole="SUSHI" ToRole="SUSHI_STORE" />
+          <NavigationProperty Name="SUSHI_STORE" Relationship="Self.FK__SUSHI_STO__SUSHI__3D5E1FD2" FromRole="SUSHI" ToRole="SUSHI_STORE" />
         </EntityType>
         <EntityType Name="SUSHI_STORE">
           <Key>
@@ -117,20 +106,10 @@
           <Property Name="SUSHI_ID" Type="Int32" Nullable="false" />
           <Property Name="INGREDIENT_ID" Type="Int32" Nullable="false" />
           <Property Name="GRADE_SUSHI" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="INGREDIENTS" Relationship="Self.FK__SUSHI_STO__INGRE__3C69FB99" FromRole="SUSHI_STORE" ToRole="INGREDIENTS" />
-          <NavigationProperty Name="SUSHI" Relationship="Self.FK__SUSHI_STO__SUSHI__3B75D760" FromRole="SUSHI_STORE" ToRole="SUSHI" />
+          <NavigationProperty Name="INGREDIENTS" Relationship="Self.FK__SUSHI_STO__INGRE__3E52440B" FromRole="SUSHI_STORE" ToRole="INGREDIENTS" />
+          <NavigationProperty Name="SUSHI" Relationship="Self.FK__SUSHI_STO__SUSHI__3D5E1FD2" FromRole="SUSHI_STORE" ToRole="SUSHI" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <Association Name="FK__SUSHI_STO__INGRE__3C69FB99">
+        <Association Name="FK__SUSHI_STO__INGRE__3E52440B">
           <End Role="INGREDIENTS" Type="Self.INGREDIENTS" Multiplicity="1" />
           <End Role="SUSHI_STORE" Type="Self.SUSHI_STORE" Multiplicity="*" />
           <ReferentialConstraint>
@@ -142,7 +121,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SUSHI_STO__SUSHI__3B75D760">
+        <Association Name="FK__SUSHI_STO__SUSHI__3D5E1FD2">
           <End Role="SUSHI" Type="Self.SUSHI" Multiplicity="1" />
           <End Role="SUSHI_STORE" Type="Self.SUSHI_STORE" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,16 +133,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PRAKT2Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PRAKT3Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="INGREDIENTS" EntityType="Self.INGREDIENTS" />
           <EntitySet Name="SUSHI" EntityType="Self.SUSHI" />
           <EntitySet Name="SUSHI_STORE" EntityType="Self.SUSHI_STORE" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <AssociationSet Name="FK__SUSHI_STO__INGRE__3C69FB99" Association="Self.FK__SUSHI_STO__INGRE__3C69FB99">
+          <AssociationSet Name="FK__SUSHI_STO__INGRE__3E52440B" Association="Self.FK__SUSHI_STO__INGRE__3E52440B">
             <End Role="INGREDIENTS" EntitySet="INGREDIENTS" />
             <End Role="SUSHI_STORE" EntitySet="SUSHI_STORE" />
           </AssociationSet>
-          <AssociationSet Name="FK__SUSHI_STO__SUSHI__3B75D760" Association="Self.FK__SUSHI_STO__SUSHI__3B75D760">
+          <AssociationSet Name="FK__SUSHI_STO__SUSHI__3D5E1FD2" Association="Self.FK__SUSHI_STO__SUSHI__3D5E1FD2">
             <End Role="SUSHI" EntitySet="SUSHI" />
             <End Role="SUSHI_STORE" EntitySet="SUSHI_STORE" />
           </AssociationSet>
@@ -173,9 +151,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище PRAKT2ModelContainer" CdmEntityContainer="PRAKT2Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PRAKT3ModelContainer" CdmEntityContainer="PRAKT3Entities">
           <EntitySetMapping Name="INGREDIENTS">
-            <EntityTypeMapping TypeName="PRAKT2Model.INGREDIENTS">
+            <EntityTypeMapping TypeName="PRAKT3Model.INGREDIENTS">
               <MappingFragment StoreEntitySet="INGREDIENTS">
                 <ScalarProperty Name="ID_INGREDIENT" ColumnName="ID_INGREDIENT" />
                 <ScalarProperty Name="NAME_INGREDIENT" ColumnName="NAME_INGREDIENT" />
@@ -185,7 +163,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SUSHI">
-            <EntityTypeMapping TypeName="PRAKT2Model.SUSHI">
+            <EntityTypeMapping TypeName="PRAKT3Model.SUSHI">
               <MappingFragment StoreEntitySet="SUSHI">
                 <ScalarProperty Name="ID_SUSHI" ColumnName="ID_SUSHI" />
                 <ScalarProperty Name="NANE_SUSHI" ColumnName="NANE_SUSHI" />
@@ -195,7 +173,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SUSHI_STORE">
-            <EntityTypeMapping TypeName="PRAKT2Model.SUSHI_STORE">
+            <EntityTypeMapping TypeName="PRAKT3Model.SUSHI_STORE">
               <MappingFragment StoreEntitySet="SUSHI_STORE">
                 <ScalarProperty Name="ID_SUSHI_STORE" ColumnName="ID_SUSHI_STORE" />
                 <ScalarProperty Name="NAME_POVARA" ColumnName="NAME_POVARA" />
@@ -203,17 +181,6 @@
                 <ScalarProperty Name="SUSHI_ID" ColumnName="SUSHI_ID" />
                 <ScalarProperty Name="INGREDIENT_ID" ColumnName="INGREDIENT_ID" />
                 <ScalarProperty Name="GRADE_SUSHI" ColumnName="GRADE_SUSHI" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="PRAKT2Model.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
